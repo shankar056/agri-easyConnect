@@ -1,0 +1,71 @@
+{% extends 'customer/customerbase.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+       label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top:15px;
+      font-size: 20px;
+      
+      transition: 0.5s;
+      transition-property: color;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4 class="text-center">Asked Question History</h4>
+    </div>
+    <table class="table table-hover table-striped table-bordered" id="dev-table">
+      <thead class="thead-dark">
+        <tr>
+        <th>#</th>
+          <th>Question</th>
+            <th>Admin Comment</th> 
+          <th> Asked Date</th>
+          
+          
+        </tr>
+      </thead>
+      {% for t in questions %}
+      <tr>
+        <td> {{ forloop.counter }}</td>
+        <td> {{t.description}}</td>
+
+        <td>{{t.admin_comment}}</td>
+        <td>{{t.asked_date}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}
